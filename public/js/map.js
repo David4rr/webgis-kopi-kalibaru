@@ -231,7 +231,7 @@ function initMap() {
             e.latlng.lng.toFixed(6);
     });
 
-    // Klik peta untuk cepat isi koordinat centroid ketika modal terbuka (tetapi preferred adalah menggambar polygon)
+    // Klik peta untuk isi cepat koordinat centroid ketika modal terbuka
     mymap.on("click", (e) => {
         lastClickedLatLng = e.latlng;
         const latEl = document.getElementById("latInput");
@@ -428,10 +428,10 @@ function loadAllLands() {
                 <div style="background-color: ${landColor}; color: white; padding: 6px; border-radius: 5px; text-align: center; font-weight: bold; margin-bottom: 10px;">
                     ${landCategory}
                 </div>
-                <p><strong>☕ Total Produktivitas:</strong> ${
+                <p><strong>Total Produktivitas:</strong> ${
                     land.totalProductivity
                 } kg</p>
-                <p><strong>📐 Luas:</strong> ${land.luas.toFixed(2)} m²</p>
+                <p><strong>Luas:</strong> ${land.luas.toFixed(2)} m²</p>
                         <div style="margin-top:8px; text-align:right; display:flex; gap:8px; justify-content:flex-end;">
                                 <button onclick="window.handleEditLahan && window.handleEditLahan(${
                                     land.id
@@ -651,7 +651,7 @@ function performSearch(query) {
             resultItem.className = "search-result-item";
             resultItem.innerHTML = `
         <div class="land-name">${land.name}</div>
-        <div class="land-productivity">☕ ${land.totalProductivity} kg</div>
+        <div class="land-productivity">${land.totalProductivity} kg</div>
         <span class="land-category" style="background-color: ${color};">${category}</span>
       `;
 
@@ -996,7 +996,7 @@ function setupEventListeners() {
                 );
                 isGenerating = false;
                 genBtn.disabled = false;
-                genBtn.textContent = _prevGenText || "⚡ Generate Prediksi";
+                genBtn.textContent = _prevGenText || "Generate Prediksi";
                 return;
             }
 
@@ -1126,7 +1126,7 @@ function setupEventListeners() {
                 // restore generate button
                 isGenerating = false;
                 genBtn.disabled = false;
-                genBtn.textContent = _prevGenText || "⚡ Generate Prediksi";
+                genBtn.textContent = _prevGenText || "Generate Prediksi";
             }
         });
     }
